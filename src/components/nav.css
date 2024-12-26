@@ -1,0 +1,130 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  background: linear-gradient(90deg, #80F, #f40);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.desktop-menu {
+  display: flex;
+  gap: 2rem;
+}
+
+.desktop-menu button,
+.mobile-menu button {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+}
+
+.desktop-menu button:hover {
+  color: #80F;
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: #ffffff;
+  position: relative;
+  transition: 0.3s;
+}
+
+.bar::before,
+.bar::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 2px;
+  background: #ffffff;
+  transition: 0.3s;
+}
+
+.bar::before {
+  top: -8px;
+}
+
+.bar::after {
+  top: 8px;
+}
+
+.bar.open {
+  background: transparent;
+}
+
+.bar.open::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.bar.open::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: flex;
+  }
+
+  .mobile-menu button {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .mobile-menu button:last-child {
+    border-bottom: none;
+  }
+}
